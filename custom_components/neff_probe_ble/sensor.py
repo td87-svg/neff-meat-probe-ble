@@ -64,6 +64,15 @@ SENSORS: tuple[NeffProbeSensorDescription, ...] = (
     ),
     *(_channel(index) for index in range(4)),
     NeffProbeSensorDescription(
+        key="ambient",
+        translation_key="ambient",
+        device_class=SensorDeviceClass.TEMPERATURE,
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
+        state_class=SensorStateClass.MEASUREMENT,
+        suggested_display_precision=0,
+        value_fn=lambda c: c.sample.ambient if c.sample else None,
+    ),
+    NeffProbeSensorDescription(
         key="rssi",
         device_class=SensorDeviceClass.SIGNAL_STRENGTH,
         native_unit_of_measurement=SIGNAL_STRENGTH_DECIBELS_MILLIWATT,

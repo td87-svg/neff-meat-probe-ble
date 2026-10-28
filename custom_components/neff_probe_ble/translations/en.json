@@ -37,6 +37,9 @@
       "channel": {
         "name": "Channel {channel}"
       },
+      "ambient": {
+        "name": "Ambient temperature"
+      },
       "last_received": {
         "name": "Last valid packet"
       }

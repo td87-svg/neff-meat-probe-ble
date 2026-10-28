@@ -57,6 +57,7 @@ def test_heating_sequence() -> None:
     assert sample.mean == 31.5
     assert sample.rounded_mean == 32
     assert sample.raw[4] == 27
+    assert sample.ambient == 27
     assert sample.raw[6] == 33
 
 

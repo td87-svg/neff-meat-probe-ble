@@ -22,6 +22,11 @@ class ProbeSample:
     channels: tuple[int, int, int, int]
 
     @property
+    def ambient(self) -> int:
+        """Return the ambient (oven) temperature measured near the handle."""
+        return self.raw[4]
+
+    @property
     def mean(self) -> float:
         """Return the mean of the four measuring points."""
         return sum(self.channels) / 4

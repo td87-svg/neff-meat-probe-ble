@@ -37,6 +37,9 @@
       "channel": {
         "name": "Kanal {channel}"
       },
+      "ambient": {
+        "name": "Umgebungstemperatur"
+      },
       "last_received": {
         "name": "Letztes gültiges Paket"
       }

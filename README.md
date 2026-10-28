@@ -39,6 +39,7 @@ Voraussetzung: Home Assistant 2026.10 oder neuer.
 | --- | --- |
 | Mittelwert | Durchschnitt der vier Messpunkte in °C |
 | Kanal 1–4 | Die vier Messpunkte einzeln, Kanal 1 = Spitze, Kanal 4 = nahe am Griff (standardmäßig deaktiviert) |
+| Umgebungstemperatur | Temperatur um die Sonde herum, im Ofen also etwa die Ofentemperatur (zeigt die Home-Connect-App nicht an) |
 | Signalstärke | Empfangsstärke in dBm (standardmäßig deaktiviert) |
 | Letztes gültiges Paket | Wann zuletzt Daten ankamen |
 
@@ -87,6 +88,7 @@ Requires Home Assistant 2026.10 or newer.
 | --- | --- |
 | Average | Mean of the four measuring points in °C |
 | Channel 1–4 | Each measuring point, channel 1 = tip, channel 4 = near the handle (disabled by default) |
+| Ambient temperature | Temperature around the probe, i.e. roughly the oven temperature (not shown in the Home Connect app) |
 | Signal strength | Reception strength in dBm (disabled by default) |
 | Last valid packet | When data last arrived |
 

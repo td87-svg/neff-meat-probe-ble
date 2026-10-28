@@ -25,6 +25,7 @@ from .conftest import ADDRESS, inject_bluetooth_service_info, probe_service_info
 MEAN = "sensor.neff_meat_probe_average"
 CHANNEL_1 = "sensor.neff_meat_probe_channel_1"
 LAST = "sensor.neff_meat_probe_last_valid_packet"
+AMBIENT = "sensor.neff_meat_probe_ambient_temperature"
 
 
 @pytest.fixture
@@ -74,6 +75,23 @@ async def test_values(hass: HomeAssistant, setup_entry: MockConfigEntry) -> None
     assert hass.states.get("sensor.neff_meat_probe_channel_4").state == "32"
     assert hass.states.get("sensor.neff_meat_probe_rssi").state == "-60"
     assert hass.states.get(LAST).state != STATE_UNAVAILABLE
+    ambient = hass.states.get(AMBIENT)
+    assert ambient.state == "27"
+    assert ambient.attributes["unit_of_measurement"] == "°C"
+
+
+async def test_ambient_in_oven(
+    hass: HomeAssistant, setup_entry: MockConfigEntry
+) -> None:
+    """The ambient sensor reports oven temperatures (captured at 180 °C)."""
+    inject_bluetooth_service_info(
+        hass, probe_service_info("2b2a3c6bb8005f06060000000000")
+    )
+    await hass.async_block_till_done()
+    assert hass.states.get(AMBIENT).state == "184"
+    assert hass.states.get("sensor.neff_meat_probe_channel_4").state == "107"
+    # The mean covers the four measuring points only, not the ambient value.
+    assert float(hass.states.get(MEAN).state) == (43 + 42 + 60 + 107) / 4
 
 
 async def test_expires_when_probe_goes_silent(
