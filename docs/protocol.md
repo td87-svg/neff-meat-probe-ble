@@ -38,10 +38,9 @@ integration decodes the raw advertisement bytes when they are available.
 
 ## Verified range
 
-Room temperature up to hand warmth, about 20–35 °C, compared against the app
-within a few seconds. The app value was between the channel values; offset 6
-matched it once. Behaviour above 100 °C, below 0 °C and of the station's own
-advertisements (if any) is unknown.
+Tested from room temperature up to 100 °C. The app value was between the
+channel values; offset 6 matched it once. Behaviour above 100 °C, below 0 °C
+and of the station's own advertisements (if any) is unknown.
 
 ## Test data
 
