@@ -40,7 +40,7 @@ Voraussetzung: Home Assistant 2026.10 oder neuer.
 | Mittelwert | Durchschnitt der vier Messpunkte in °C |
 | Kanal 1–4 | Die vier Messpunkte einzeln, Kanal 1 = Spitze, Kanal 4 = nahe am Griff (standardmäßig deaktiviert) |
 | Umgebungstemperatur | Temperatur um die Sonde herum, im Ofen also etwa die Ofentemperatur (zeigt die Home-Connect-App nicht an) |
-| Akku | Geschätzter Akkustand in 5-%-Schritten wie in der App, unter 30 % nur grob |
+| Batterie | Geschätzter Akkustand in 5-%-Schritten wie in der App, unter 30 % nur grob |
 | Signalstärke | Empfangsstärke in dBm (standardmäßig deaktiviert) |
 | Letztes gültiges Paket | Wann zuletzt Daten ankamen |
 
