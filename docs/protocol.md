@@ -23,8 +23,8 @@ the "company identifier" (little endian).
 
 | Offset | Example | Meaning |
 | --- | --- | --- |
-| 0–3 | `1e 20 20 20` | Four measuring points, unsigned, whole °C. Which point is the tip is not confirmed. |
-| 4 | `1b` | Probably ambient (oven) temperature, whole °C: about 20 at room temperature, 176–184 with the oven set to 180 °C. Not shown in the Home Connect app; exposed as attribute `raw_byte4`. |
+| 0–3 | `1e 20 20 20` | Four measuring points, unsigned, whole °C. Offset 0 (channel 1) is the tip, offset 3 (channel 4) the point closest to the handle. |
+| 4 | `1b` | Ambient (oven) temperature, whole °C: about 20 at room temperature, 176–184 with the oven set to 180 °C, dropping immediately when the probe is taken out. Not shown in the Home Connect app; exposed as attribute `raw_byte4`. |
 | 5 | `00` | Always 0 – used as format check |
 | 6 | `21` | Unknown; once matched the value shown in the app exactly |
 | 7 | `0b` | Unknown, varies (signed?) |
@@ -43,6 +43,13 @@ channel values above 100 °C (up to 107 °C) were reported and rose
 continuously, offset 4 read 176–184 throughout, and reception through the
 closed oven door was −80 to −94 dBm without gaps. Behaviour below 0 °C and of
 the station's own advertisements (if any) is unknown.
+
+Channel order: after cooking, the probe was pulled halfway out of the food.
+Channel 1 stayed at 81 °C, channel 2 dropped slightly (81 → 74), channels 3
+and 4 dropped fast (73 → 52, 46 → 36). So channel 1 is the tip and the
+channels are numbered towards the handle. When the probe left the oven,
+offset 4 fell from 176 to 35 within a few minutes, confirming it as ambient
+temperature.
 
 ## Test data
 

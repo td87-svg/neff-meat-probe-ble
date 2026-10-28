@@ -38,7 +38,7 @@ Voraussetzung: Home Assistant 2026.10 oder neuer.
 | Sensor | Inhalt |
 | --- | --- |
 | Mittelwert | Durchschnitt der vier Messpunkte in °C |
-| Kanal 1–4 | Die vier Messpunkte einzeln (standardmäßig deaktiviert) |
+| Kanal 1–4 | Die vier Messpunkte einzeln, Kanal 1 = Spitze, Kanal 4 = nahe am Griff (standardmäßig deaktiviert) |
 | Signalstärke | Empfangsstärke in dBm (standardmäßig deaktiviert) |
 | Letztes gültiges Paket | Wann zuletzt Daten ankamen |
 
@@ -86,7 +86,7 @@ Requires Home Assistant 2026.10 or newer.
 | Sensor | Content |
 | --- | --- |
 | Average | Mean of the four measuring points in °C |
-| Channel 1–4 | Each measuring point (disabled by default) |
+| Channel 1–4 | Each measuring point, channel 1 = tip, channel 4 = near the handle (disabled by default) |
 | Signal strength | Reception strength in dBm (disabled by default) |
 | Last valid packet | When data last arrived |
 
