@@ -1,0 +1,45 @@
+{
+  "config": {
+    "flow_title": "NEFF meat probe {address}",
+    "step": {
+      "bluetooth_confirm": {
+        "description": "Set up the meat probe {address}? Home Assistant listens to the probe's Bluetooth broadcasts directly – not via the Home Connect app or cloud, and without pairing. A Bluetooth adapter or Bluetooth proxy must be close to the oven. The data format was reverse engineered."
+      },
+      "user": {
+        "description": "Choose a probe. It only broadcasts while it is out of its charger, and only a Bluetooth adapter or proxy near the oven can receive it.",
+        "data": {
+          "address": "Probe"
+        }
+      },
+      "manual": {
+        "description": "No probe is broadcasting right now. Take the probe out of its charger and make sure a Bluetooth adapter or Bluetooth proxy is close to it, then try again, or enter its Bluetooth address.",
+        "data": {
+          "address": "Bluetooth address"
+        },
+        "data_description": {
+          "address": "For example FC:25:3F:00:00:00."
+        }
+      }
+    },
+    "error": {
+      "invalid_address": "Enter a Bluetooth address such as FC:25:3F:00:00:00."
+    },
+    "abort": {
+      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]",
+      "not_supported": "This device is not a supported NEFF meat probe."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "mean": {
+        "name": "Average"
+      },
+      "channel": {
+        "name": "Channel {channel}"
+      },
+      "last_received": {
+        "name": "Last valid packet"
+      }
+    }
+  }
+}

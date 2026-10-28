@@ -1,0 +1,19 @@
+{
+  "domain": "neff_probe_ble",
+  "name": "NEFF Meat Probe (BLE)",
+  "bluetooth": [
+    {
+      "connectable": false,
+      "local_name": "BSHwfth"
+    }
+  ],
+  "codeowners": ["@td87-svg"],
+  "config_flow": true,
+  "dependencies": ["bluetooth_adapters"],
+  "documentation": "https://github.com/td87-svg/neff-meat-probe-ble",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/td87-svg/neff-meat-probe-ble/issues",
+  "requirements": [],
+  "version": "0.2.0"
+}

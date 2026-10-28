@@ -1,0 +1,45 @@
+{
+  "config": {
+    "flow_title": "NEFF-Bratenthermometer {address}",
+    "step": {
+      "bluetooth_confirm": {
+        "description": "Bratenthermometer {address} einrichten? Home Assistant hört die Bluetooth-Funkpakete der Sonde direkt mit – nicht über die Home-Connect-App oder -Cloud und ohne Kopplung. Dafür muss ein Bluetooth-Adapter oder Bluetooth-Proxy in der Nähe des Backofens sein. Das Datenformat wurde per Reverse Engineering ermittelt."
+      },
+      "user": {
+        "description": "Sonde auswählen. Sie sendet nur, solange sie nicht in der Ladestation liegt, und nur ein Bluetooth-Adapter oder -Proxy in der Nähe des Backofens kann sie empfangen.",
+        "data": {
+          "address": "Sonde"
+        }
+      },
+      "manual": {
+        "description": "Gerade sendet keine Sonde. Nimm die Sonde aus der Ladestation, stelle sicher, dass ein Bluetooth-Adapter oder Bluetooth-Proxy in ihrer Nähe ist, und versuche es erneut – oder gib ihre Bluetooth-Adresse ein.",
+        "data": {
+          "address": "Bluetooth-Adresse"
+        },
+        "data_description": {
+          "address": "Zum Beispiel FC:25:3F:00:00:00."
+        }
+      }
+    },
+    "error": {
+      "invalid_address": "Bitte eine Bluetooth-Adresse wie FC:25:3F:00:00:00 eingeben."
+    },
+    "abort": {
+      "already_configured": "Gerät ist bereits konfiguriert",
+      "not_supported": "Dieses Gerät ist kein unterstütztes NEFF-Bratenthermometer."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "mean": {
+        "name": "Mittelwert"
+      },
+      "channel": {
+        "name": "Kanal {channel}"
+      },
+      "last_received": {
+        "name": "Letztes gültiges Paket"
+      }
+    }
+  }
+}

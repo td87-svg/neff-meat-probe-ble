@@ -1,0 +1,603 @@
+{
+  "_note": "Real BSHwfth advertisements captured with Bleak on Windows (2026-10-26). Address removed, bytes 9-13 of the reconstructed payload masked with zeros.",
+  "packets": [
+    {
+      "capture": "baseline",
+      "phase": "uncontrolled",
+      "rssi": -70,
+      "manufacturer_id": 6682,
+      "manufacturer_data": "1b1d1e001d0d060000000000",
+      "expected_channels": [
+        26,
+        26,
+        27,
+        29
+      ]
+    },
+    {
+      "capture": "phase2-undocked-leds-on",
+      "phase": "sonde_draussen_app_geschlossen_wifi_bt_dauerlicht",
+      "rssi": -60,
+      "manufacturer_id": 5912,
+      "manufacturer_data": "171717001801060000000000",
+      "expected_channels": [
+        24,
+        23,
+        23,
+        23
+      ]
+    },
+    {
+      "capture": "phase3-temperature-comparison",
+      "phase": "sonde_draussen_app_offen_ausgangswert_24",
+      "rssi": -60,
+      "manufacturer_id": 7453,
+      "manufacturer_data": "1d1d19001d0b060000000000",
+      "expected_channels": [
+        29,
+        29,
+        29,
+        29
+      ]
+    },
+    {
+      "capture": "phase3-temperature-comparison",
+      "phase": "sonde_draussen_app_offen_ausgangswert_24",
+      "rssi": -78,
+      "manufacturer_id": 7968,
+      "manufacturer_data": "1f1e1c001f08060000000000",
+      "expected_channels": [
+        32,
+        31,
+        31,
+        30
+      ]
+    },
+    {
+      "capture": "phase3-temperature-comparison",
+      "phase": "sonde_draussen_app_offen_ausgangswert_24",
+      "rssi": -88,
+      "manufacturer_id": 8224,
+      "manufacturer_data": "1f1f1d001f06060000000000",
+      "expected_channels": [
+        32,
+        32,
+        31,
+        31
+      ]
+    },
+    {
+      "capture": "phase3-temperature-comparison",
+      "phase": "sonde_draussen_app_offen_ausgangswert_24",
+      "rssi": -78,
+      "manufacturer_id": 8480,
+      "manufacturer_data": "20201c002002060000000000",
+      "expected_channels": [
+        32,
+        33,
+        32,
+        32
+      ]
+    },
+    {
+      "capture": "phase3-temperature-comparison",
+      "phase": "sonde_draussen_app_offen_ausgangswert_24",
+      "rssi": -76,
+      "manufacturer_id": 8225,
+      "manufacturer_data": "20201b002108060000000000",
+      "expected_channels": [
+        33,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "capture": "phase3-temperature-comparison",
+      "phase": "sonde_in_hand_app_geschlossen_nach_31_grad",
+      "rssi": -74,
+      "manufacturer_id": 8222,
+      "manufacturer_data": "20201b00210b060000000000",
+      "expected_channels": [
+        30,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "capture": "phase3-temperature-comparison",
+      "phase": "sonde_liegt_kuehlt_ab_app_geschlossen",
+      "rssi": -46,
+      "manufacturer_id": 6939,
+      "manufacturer_data": "1d1d1b001e06060000000000",
+      "expected_channels": [
+        27,
+        27,
+        29,
+        29
+      ]
+    },
+    {
+      "capture": "phase3-temperature-comparison",
+      "phase": "sonde_liegt_kuehlt_ab_app_geschlossen",
+      "rssi": -46,
+      "manufacturer_id": 6938,
+      "manufacturer_data": "1c1d1b001d02060000000000",
+      "expected_channels": [
+        26,
+        27,
+        28,
+        29
+      ]
+    },
+    {
+      "capture": "phase3-temperature-comparison",
+      "phase": "sonde_liegt_kuehlt_ab_app_geschlossen",
+      "rssi": -46,
+      "manufacturer_id": 6168,
+      "manufacturer_data": "191919001a01060000000000",
+      "expected_channels": [
+        24,
+        24,
+        25,
+        25
+      ]
+    },
+    {
+      "capture": "phase3-temperature-comparison",
+      "phase": "sonde_liegt_abgekuehlt_app_offen_25_gemeldet",
+      "rssi": -46,
+      "manufacturer_id": 6168,
+      "manufacturer_data": "1818180018ff050000000000",
+      "expected_channels": [
+        24,
+        24,
+        24,
+        24
+      ]
+    },
+    {
+      "capture": "phase3-temperature-comparison",
+      "phase": "sonde_liegt_abgekuehlt_app_offen_25_gemeldet",
+      "rssi": -44,
+      "manufacturer_id": 5911,
+      "manufacturer_data": "171717001804060000000000",
+      "expected_channels": [
+        23,
+        23,
+        23,
+        23
+      ]
+    },
+    {
+      "capture": "phase3-temperature-comparison",
+      "phase": "sonde_liegt_abgekuehlt_app_offen_25_gemeldet",
+      "rssi": -50,
+      "manufacturer_id": 5911,
+      "manufacturer_data": "171717001704060000000000",
+      "expected_channels": [
+        23,
+        23,
+        23,
+        23
+      ]
+    },
+    {
+      "capture": "phase3-temperature-comparison",
+      "phase": "sonde_liegt_abgekuehlt_app_offen_25_gemeldet",
+      "rssi": -44,
+      "manufacturer_id": 5911,
+      "manufacturer_data": "1717160017fb050000000000",
+      "expected_channels": [
+        23,
+        23,
+        23,
+        23
+      ]
+    },
+    {
+      "capture": "phase3-temperature-comparison",
+      "phase": "sonde_liegt_abgekuehlt_app_offen_25_gemeldet",
+      "rssi": -50,
+      "manufacturer_id": 5911,
+      "manufacturer_data": "1717160017fd050000000000",
+      "expected_channels": [
+        23,
+        23,
+        23,
+        23
+      ]
+    },
+    {
+      "capture": "phase6-distance-test",
+      "phase": "abstandstest_ausgangslage_station_nah",
+      "rssi": -44,
+      "manufacturer_id": 5911,
+      "manufacturer_data": "1716160017fd050000000000",
+      "expected_channels": [
+        23,
+        23,
+        23,
+        22
+      ]
+    },
+    {
+      "capture": "phase6-distance-test",
+      "phase": "abstandstest_ausgangslage_station_nah",
+      "rssi": -50,
+      "manufacturer_id": 5911,
+      "manufacturer_data": "1716160017fb050000000000",
+      "expected_channels": [
+        23,
+        23,
+        23,
+        22
+      ]
+    },
+    {
+      "capture": "phase6-distance-test",
+      "phase": "abstandstest_station_entfernt_sonde_pc_unveraendert",
+      "rssi": -44,
+      "manufacturer_id": 5911,
+      "manufacturer_data": "1616160017fd050000000000",
+      "expected_channels": [
+        23,
+        23,
+        22,
+        22
+      ]
+    },
+    {
+      "capture": "phase6-distance-test",
+      "phase": "abstandstest_station_entfernt_sonde_pc_unveraendert",
+      "rssi": -50,
+      "manufacturer_id": 5911,
+      "manufacturer_data": "161616001606060000000000",
+      "expected_channels": [
+        23,
+        23,
+        22,
+        22
+      ]
+    },
+    {
+      "capture": "phase6-distance-test",
+      "phase": "abstandstest_station_entfernt_sonde_pc_unveraendert",
+      "rssi": -48,
+      "manufacturer_id": 5655,
+      "manufacturer_data": "1616160016fd050000000000",
+      "expected_channels": [
+        23,
+        22,
+        22,
+        22
+      ]
+    },
+    {
+      "capture": "phase6-distance-test",
+      "phase": "abstandstest_station_zurueck_sonde_pc_unveraendert",
+      "rssi": -46,
+      "manufacturer_id": 5655,
+      "manufacturer_data": "1616160016ff050000000000",
+      "expected_channels": [
+        23,
+        22,
+        22,
+        22
+      ]
+    },
+    {
+      "capture": "phase6-distance-test",
+      "phase": "abstandstest_station_zurueck_sonde_pc_unveraendert",
+      "rssi": -46,
+      "manufacturer_id": 5911,
+      "manufacturer_data": "1616150016f8050000000000",
+      "expected_channels": [
+        23,
+        23,
+        22,
+        22
+      ]
+    },
+    {
+      "capture": "phase6-distance-test",
+      "phase": "abstandstest_station_zurueck_sonde_pc_unveraendert",
+      "rssi": -50,
+      "manufacturer_id": 5655,
+      "manufacturer_data": "161616001601060000000000",
+      "expected_channels": [
+        23,
+        22,
+        22,
+        22
+      ]
+    },
+    {
+      "capture": "phase6-distance-test",
+      "phase": "abstandstest_station_zurueck_sonde_pc_unveraendert",
+      "rssi": -46,
+      "manufacturer_id": 5911,
+      "manufacturer_data": "161615001601060000000000",
+      "expected_channels": [
+        23,
+        23,
+        22,
+        22
+      ]
+    },
+    {
+      "capture": "phase6-distance-test",
+      "phase": "abstandstest_station_zurueck_sonde_pc_unveraendert",
+      "rssi": -46,
+      "manufacturer_id": 5911,
+      "manufacturer_data": "1616160016ff050000000000",
+      "expected_channels": [
+        23,
+        23,
+        22,
+        22
+      ]
+    },
+    {
+      "capture": "phase6-distance-test",
+      "phase": "abstandstest_station_zurueck_sonde_pc_unveraendert",
+      "rssi": -50,
+      "manufacturer_id": 5655,
+      "manufacturer_data": "1616150016fb050000000000",
+      "expected_channels": [
+        23,
+        22,
+        22,
+        22
+      ]
+    },
+    {
+      "capture": "phase6-distance-test",
+      "phase": "abstandstest_station_zurueck_sonde_pc_unveraendert",
+      "rssi": -46,
+      "manufacturer_id": 5911,
+      "manufacturer_data": "1616150016ff050000000000",
+      "expected_channels": [
+        23,
+        23,
+        22,
+        22
+      ]
+    },
+    {
+      "capture": "phase6-distance-test",
+      "phase": "abstandstest_sonde_entfernt_station_pc_unveraendert",
+      "rssi": -84,
+      "manufacturer_id": 5140,
+      "manufacturer_data": "1515160015fb050000000000",
+      "expected_channels": [
+        20,
+        20,
+        21,
+        21
+      ]
+    },
+    {
+      "capture": "phase6-distance-test",
+      "phase": "abstandstest_sonde_entfernt_station_pc_unveraendert",
+      "rssi": -58,
+      "manufacturer_id": 5140,
+      "manufacturer_data": "1414160015f8050000000000",
+      "expected_channels": [
+        20,
+        20,
+        20,
+        20
+      ]
+    },
+    {
+      "capture": "phase6-distance-test",
+      "phase": "abstandstest_sonde_zurueck_neben_station",
+      "rssi": -52,
+      "manufacturer_id": 5655,
+      "manufacturer_data": "1616170016fd050000000000",
+      "expected_channels": [
+        23,
+        22,
+        22,
+        22
+      ]
+    },
+    {
+      "capture": "validation-temperature",
+      "phase": "validierung_ausgangslage_sonde_neben_station",
+      "rssi": -70,
+      "manufacturer_id": 7711,
+      "manufacturer_data": "1f1f1e002002060000000000",
+      "expected_channels": [
+        31,
+        30,
+        31,
+        31
+      ]
+    },
+    {
+      "capture": "validation-temperature",
+      "phase": "validierung_sonde_in_hand_app_32_gemeldet",
+      "rssi": -70,
+      "manufacturer_id": 7967,
+      "manufacturer_data": "1f201b0020ff050000000000",
+      "expected_channels": [
+        31,
+        31,
+        31,
+        32
+      ]
+    },
+    {
+      "capture": "validation-temperature",
+      "phase": "validierung_sonde_in_hand_app_32_gemeldet",
+      "rssi": -74,
+      "manufacturer_id": 7968,
+      "manufacturer_data": "1f201b002001060000000000",
+      "expected_channels": [
+        32,
+        31,
+        31,
+        32
+      ]
+    },
+    {
+      "capture": "validation-temperature",
+      "phase": "validierung_sonde_in_hand_app_32_gemeldet",
+      "rssi": -54,
+      "manufacturer_id": 7710,
+      "manufacturer_data": "1e1e1a001f08060000000000",
+      "expected_channels": [
+        30,
+        30,
+        30,
+        30
+      ]
+    },
+    {
+      "capture": "validation-temperature",
+      "phase": "validierung_sonde_in_hand_app_32_gemeldet",
+      "rssi": -54,
+      "manufacturer_id": 7196,
+      "manufacturer_data": "1d1e1a001efd050000000000",
+      "expected_channels": [
+        28,
+        28,
+        29,
+        30
+      ]
+    },
+    {
+      "capture": "validation-temperature",
+      "phase": "validierung_sonde_in_hand_app_32_gemeldet",
+      "rssi": -50,
+      "manufacturer_id": 6939,
+      "manufacturer_data": "1c1c1a001d01060000000000",
+      "expected_channels": [
+        27,
+        27,
+        28,
+        28
+      ]
+    },
+    {
+      "capture": "validation-temperature",
+      "phase": "validierung_sonde_in_hand_app_32_gemeldet",
+      "rssi": -50,
+      "manufacturer_id": 6938,
+      "manufacturer_data": "1c1c1a001dff050000000000",
+      "expected_channels": [
+        26,
+        27,
+        28,
+        28
+      ]
+    },
+    {
+      "capture": "validation-temperature",
+      "phase": "validierung_abgekuehlt_app_25_gemeldet",
+      "rssi": -50,
+      "manufacturer_id": 6425,
+      "manufacturer_data": "1a1a18001afd050000000000",
+      "expected_channels": [
+        25,
+        25,
+        26,
+        26
+      ]
+    },
+    {
+      "capture": "validation-temperature",
+      "phase": "validierung_abgekuehlt_app_25_gemeldet",
+      "rssi": -50,
+      "manufacturer_id": 6425,
+      "manufacturer_data": "1a1918001afa050000000000",
+      "expected_channels": [
+        25,
+        25,
+        26,
+        25
+      ]
+    },
+    {
+      "capture": "validation-temperature",
+      "phase": "validierung_abgekuehlt_app_25_gemeldet",
+      "rssi": -50,
+      "manufacturer_id": 6169,
+      "manufacturer_data": "191918001a04060000000000",
+      "expected_channels": [
+        25,
+        24,
+        25,
+        25
+      ]
+    },
+    {
+      "capture": "validation-temperature",
+      "phase": "validierung_abgekuehlt_app_25_gemeldet",
+      "rssi": -54,
+      "manufacturer_id": 6168,
+      "manufacturer_data": "1918180019fa050000000000",
+      "expected_channels": [
+        24,
+        24,
+        25,
+        24
+      ]
+    },
+    {
+      "capture": "validation-temperature",
+      "phase": "validierung_abgekuehlt_app_25_gemeldet",
+      "rssi": -54,
+      "manufacturer_id": 6168,
+      "manufacturer_data": "1818170018fa050000000000",
+      "expected_channels": [
+        24,
+        24,
+        24,
+        24
+      ]
+    },
+    {
+      "capture": "validation-temperature",
+      "phase": "validierung_abgekuehlt_app_25_gemeldet",
+      "rssi": -50,
+      "manufacturer_id": 6168,
+      "manufacturer_data": "1817170018f8050000000000",
+      "expected_channels": [
+        24,
+        24,
+        24,
+        23
+      ]
+    },
+    {
+      "capture": "validation-temperature",
+      "phase": "validierung_abgekuehlt_app_25_gemeldet",
+      "rssi": -54,
+      "manufacturer_id": 5912,
+      "manufacturer_data": "1717170017fb050000000000",
+      "expected_channels": [
+        24,
+        23,
+        23,
+        23
+      ]
+    },
+    {
+      "capture": "validation-temperature",
+      "phase": "validierung_abgekuehlt_app_25_gemeldet",
+      "rssi": -52,
+      "manufacturer_id": 5912,
+      "manufacturer_data": "1717170017fd050000000000",
+      "expected_channels": [
+        24,
+        23,
+        23,
+        23
+      ]
+    }
+  ]
+}
