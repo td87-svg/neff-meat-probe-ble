@@ -140,6 +140,10 @@ async def test_unknown_payload_makes_unavailable_without_error_log(
     await hass.async_block_till_done()
     assert hass.states.get(MEAN).state == STATE_UNAVAILABLE
     assert not [r for r in caplog.records if r.levelname in ("WARNING", "ERROR")]
+    # The rejected payload is kept for analysis (diagnostics, debug log).
+    assert "payload 6565656565001801060808a60200" in caplog.text
+    diag = await async_get_config_entry_diagnostics(hass, setup_entry)
+    assert diag["last_rejected_head_hex"] == "656565656500180106"
 
 
 async def test_diagnostics_redact_address(

@@ -22,7 +22,12 @@ from homeassistant.helpers.event import async_call_later
 from homeassistant.util import dt as dt_util
 
 from .const import STALE_SECONDS
-from .decoder import NoManufacturerData, ProbeSample, decode_advertisement
+from .decoder import (
+    NoManufacturerData,
+    ProbeSample,
+    decode_advertisement,
+    manufacturer_payload,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -49,6 +54,7 @@ class NeffProbeCoordinator(PassiveBluetoothDataUpdateCoordinator):
         self.rssi: int | None = None
         self.source: str | None = None
         self.last_error: str | None = None
+        self.last_rejected: bytes | None = None
         self._cancel_expiry: Callable[[], None] | None = None
 
     @property
@@ -83,8 +89,18 @@ class NeffProbeCoordinator(PassiveBluetoothDataUpdateCoordinator):
             # A name-only scan response neither refreshes nor invalidates.
             return
         except (ValueError, TypeError, OverflowError) as err:
-            _LOGGER.debug("Ignoring undecodable packet from %s: %s", self.address, err)
+            payload = manufacturer_payload(
+                service_info.manufacturer_data, getattr(service_info, "raw", None)
+            )
+            _LOGGER.debug(
+                "Ignoring undecodable packet from %s: %s (payload %s, rssi %s)",
+                self.address,
+                err,
+                payload.hex() if payload else None,
+                service_info.rssi,
+            )
             self.last_error = str(err)
+            self.last_rejected = payload
             self._available = False
             self.async_update_listeners()
             return

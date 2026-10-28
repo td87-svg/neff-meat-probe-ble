@@ -40,5 +40,8 @@ async def async_get_config_entry_diagnostics(
         # Bytes 0-8 change with temperature. The constant tail might identify
         # the individual probe, so it is left out.
         "payload_head_hex": sample.raw[:9].hex() if sample else None,
+        "last_rejected_head_hex": (
+            coordinator.last_rejected[:9].hex() if coordinator.last_rejected else None
+        ),
         "payload_length": PAYLOAD_LENGTH,
     }

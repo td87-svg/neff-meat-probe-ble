@@ -12,6 +12,7 @@ from custom_components.neff_probe_ble.decoder import (
     ProbeSample,
     decode,
     decode_advertisement,
+    manufacturer_payload,
 )
 
 PACKETS = json.loads(
@@ -109,6 +110,15 @@ def test_rejects_malformed_raw(raw: bytes) -> None:
     """Malformed or ambiguous raw advertisements are rejected."""
     with pytest.raises(ValueError):
         decode_advertisement({}, raw)
+
+
+def test_manufacturer_payload_of_rejected_packet() -> None:
+    """Rejected packets can still be recorded."""
+    payload = bytes.fromhex("6565656565001801060808a60200")
+    assert manufacturer_payload({}, _ad_structure(0xFF, payload)) == payload
+    assert manufacturer_payload({0x6565: payload[2:]}) == payload
+    assert manufacturer_payload({}, b"\x05\xff\x18") is None
+    assert manufacturer_payload({1: b"", 2: b""}) is None
 
 
 def test_zero_length_terminates_raw() -> None:

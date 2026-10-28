@@ -52,6 +52,30 @@ def decode_advertisement(
     """
     if not raw:
         return decode(manufacturer_data)
+    payload = _raw_manufacturer_payload(raw)
+    return decode({int.from_bytes(payload[:2], "little"): payload[2:]})
+
+
+def manufacturer_payload(
+    manufacturer_data: Mapping[int, bytes], raw: bytes | None = None
+) -> bytes | None:
+    """Return the payload including the two ID bytes, without validating it.
+
+    Used to record packets the decoder rejects, e.g. unseen temperatures.
+    """
+    try:
+        if raw:
+            return _raw_manufacturer_payload(raw)
+        if len(manufacturer_data) == 1:
+            company_id, data = next(iter(manufacturer_data.items()))
+            return company_id.to_bytes(2, "little") + bytes(data)
+    except ValueError, TypeError, OverflowError:
+        pass
+    return None
+
+
+def _raw_manufacturer_payload(raw: bytes) -> bytes:
+    """Return the single manufacturer AD structure of a raw advertisement."""
     manufacturers = []
     offset = 0
     while offset < len(raw):
@@ -68,8 +92,7 @@ def decode_advertisement(
         raise NoManufacturerData("Packet contains no manufacturer data")
     if len(manufacturers) != 1 or len(manufacturers[0]) < 2:
         raise ValueError("Ambiguous manufacturer data")
-    payload = manufacturers[0]
-    return decode({int.from_bytes(payload[:2], "little"): payload[2:]})
+    return bytes(manufacturers[0])
 
 
 def decode(manufacturer_data: Mapping[int, bytes]) -> ProbeSample:
