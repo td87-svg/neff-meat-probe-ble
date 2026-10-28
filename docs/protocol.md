@@ -24,7 +24,7 @@ the "company identifier" (little endian).
 | Offset | Example | Meaning |
 | --- | --- | --- |
 | 0–3 | `1e 20 20 20` | Four measuring points, unsigned, whole °C. Which point is the tip is not confirmed. |
-| 4 | `1b` | Unknown, follows temperature loosely (ambient/handle?) |
+| 4 | `1b` | Probably ambient (oven) temperature, whole °C: about 20 at room temperature, 176–184 with the oven set to 180 °C. Not shown in the Home Connect app; exposed as attribute `raw_byte4`. |
 | 5 | `00` | Always 0 – used as format check |
 | 6 | `21` | Unknown; once matched the value shown in the app exactly |
 | 7 | `0b` | Unknown, varies (signed?) |
