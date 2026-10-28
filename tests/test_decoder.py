@@ -60,6 +60,21 @@ def test_heating_sequence() -> None:
     assert sample.raw[6] == 33
 
 
+@pytest.mark.parametrize(
+    ("payload_hex", "channels"),
+    [
+        # Captured in an oven set to 180 °C; tail masked.
+        ("1817246ab00050f8050000000000", (24, 23, 36, 106)),
+        ("2b2a3c6bb8005f06060000000000", (43, 42, 60, 107)),
+    ],
+)
+def test_channels_above_100(payload_hex: str, channels: tuple[int, ...]) -> None:
+    """Channels above 100 °C are valid readings."""
+    payload = bytes.fromhex(payload_hex)
+    sample = decode_advertisement({}, _ad_structure(0xFF, payload))
+    assert sample.channels == channels
+
+
 def test_mean() -> None:
     """The mean is the average of all four channels."""
     sample = ProbeSample(raw=bytes(14), channels=(26, 27, 28, 29))
@@ -87,7 +102,6 @@ def test_raw_without_raw_falls_back_to_mapping() -> None:
         ({0x1718: bytes(11)}, "Unknown manufacturer payload"),
         ({0x1718: bytes.fromhex("171717011801060808a60200")}, "Unknown manufacturer"),
         ({0x1718: bytes.fromhex("6517170018010608")}, "Unknown manufacturer"),
-        ({0x1765: bytes.fromhex("171717001801060808a60200")}, "above 100"),
         ({0x10000: bytes(12)}, "Invalid manufacturer"),
         ({-1: bytes(12)}, "Invalid manufacturer"),
     ],

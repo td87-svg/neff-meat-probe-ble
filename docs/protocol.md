@@ -38,9 +38,11 @@ integration decodes the raw advertisement bytes when they are available.
 
 ## Verified range
 
-Tested from room temperature up to 100 °C. The app value was between the
-channel values; offset 6 matched it once. Behaviour above 100 °C, below 0 °C
-and of the station's own advertisements (if any) is unknown.
+Tested from room temperature to above 100 °C in an oven set to 180 °C:
+channel values above 100 °C (up to 107 °C) were reported and rose
+continuously, offset 4 read 176–184 throughout, and reception through the
+closed oven door was −80 to −94 dBm without gaps. Behaviour below 0 °C and of
+the station's own advertisements (if any) is unknown.
 
 ## Test data
 

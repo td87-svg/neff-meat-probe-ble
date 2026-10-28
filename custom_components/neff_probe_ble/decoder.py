@@ -13,10 +13,6 @@ import math
 
 PAYLOAD_LENGTH = 14
 
-# Highest channel value seen during reverse engineering. Larger values have
-# not been observed yet, so they are rejected rather than guessed.
-MAX_CHANNEL_C = 100
-
 
 @dataclass(frozen=True)
 class ProbeSample:
@@ -111,6 +107,4 @@ def decode(manufacturer_data: Mapping[int, bytes]) -> ProbeSample:
     if len(raw) != PAYLOAD_LENGTH or raw[5] != 0:
         raise ValueError("Unknown manufacturer payload format")
     channels = (raw[0], raw[1], raw[2], raw[3])
-    if any(value > MAX_CHANNEL_C for value in channels):
-        raise ValueError(f"Channel value above {MAX_CHANNEL_C} °C")
     return ProbeSample(raw=raw, channels=channels)

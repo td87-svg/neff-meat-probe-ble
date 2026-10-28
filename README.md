@@ -48,8 +48,7 @@ keine veralteten Werte.
 
 ### Gut zu wissen
 
-- Getestet mit **NEFF Z1365WX0** von 20 bis 100 °C. Werte über 100 °C werden
-  derzeit verworfen.
+- Getestet mit **NEFF Z1365WX0**, auch im heißen Ofen (Messpunkte über 100 °C).
 - Baugleiche Sonden von Bosch, Siemens oder Gaggenau funktionieren vermutlich
   auch (Bluetooth-Name `BSHwfth`) – Rückmeldung gern als Issue.
 - Das Datenformat wurde per Reverse Engineering ermittelt. Inoffiziell, keine
@@ -96,8 +95,8 @@ the temperatures become **unavailable** – no errors, no stale values.
 
 ### Good to know
 
-- Tested with the **NEFF Z1365WX0** from 20 to 100 °C. Values above 100 °C are
-  currently discarded.
+- Tested with the **NEFF Z1365WX0**, including in a hot oven (measuring points
+  above 100 °C).
 - Identical probes from Bosch, Siemens or Gaggenau probably work too (Bluetooth
   name `BSHwfth`) – feedback welcome as an issue.
 - The data format was reverse engineered. Unofficial, not affiliated with BSH,
