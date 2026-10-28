@@ -27,6 +27,11 @@ class ProbeSample:
         return self.raw[4]
 
     @property
+    def battery_reading(self) -> int:
+        """Return the raw battery reading (offsets 7-8, probably voltage)."""
+        return int.from_bytes(self.raw[7:9], "little")
+
+    @property
     def mean(self) -> float:
         """Return the mean of the four measuring points."""
         return sum(self.channels) / 4

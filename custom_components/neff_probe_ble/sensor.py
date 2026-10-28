@@ -18,6 +18,7 @@ from homeassistant.components.sensor import (
 )
 from homeassistant.const import (
     CONF_ADDRESS,
+    PERCENTAGE,
     SIGNAL_STRENGTH_DECIBELS_MILLIWATT,
     EntityCategory,
     UnitOfTemperature,
@@ -71,6 +72,14 @@ SENSORS: tuple[NeffProbeSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
         suggested_display_precision=0,
         value_fn=lambda c: c.sample.ambient if c.sample else None,
+    ),
+    NeffProbeSensorDescription(
+        key="battery",
+        device_class=SensorDeviceClass.BATTERY,
+        native_unit_of_measurement=PERCENTAGE,
+        state_class=SensorStateClass.MEASUREMENT,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        value_fn=lambda c: c.battery.level,
     ),
     NeffProbeSensorDescription(
         key="rssi",
@@ -155,6 +164,7 @@ class NeffProbeSensor(
             "full_manufacturer_hex": sample.raw.hex(),
             "raw_byte4": sample.raw[4],
             "raw_byte6": sample.raw[6],
+            "battery_reading": sample.battery_reading,
             "last_valid_packet": (
                 self.coordinator.received_at.isoformat()
                 if self.coordinator.received_at

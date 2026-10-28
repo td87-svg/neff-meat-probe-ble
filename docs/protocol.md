@@ -27,8 +27,7 @@ the "company identifier" (little endian).
 | 4 | `1b` | Ambient (oven) temperature, whole °C: about 20 at room temperature, 176–184 with the oven set to 180 °C, dropping immediately when the probe is taken out. Not shown in the Home Connect app; exposed as the "Ambient temperature" sensor (and attribute `raw_byte4`). |
 | 5 | `00` | Always 0 – used as format check |
 | 6 | `21` | Unknown; once matched the value shown in the app exactly |
-| 7 | `0b` | Unknown, varies (signed?) |
-| 8 | `06` | Unknown, `05`/`06` |
+| 7–8 | `0b 06` | Battery reading, uint16 little endian (here 1547), probably the battery voltage. Falls steadily while discharging; heat raises it (about +20 at 180 °C). See [Battery](#battery). |
 | 9–13 | `08 08 a6 02 00` | Constant on the tested probe (model, firmware or serial?) |
 
 Because offsets 0–1 are temperatures, the "company identifier" reported by
@@ -50,6 +49,27 @@ and 4 dropped fast (73 → 52, 46 → 36). So channel 1 is the tip and the
 channels are numbered towards the handle. When the probe left the oven,
 offset 4 fell from 176 to 35 within a few minutes, confirming it as ambient
 temperature.
+
+## Battery
+
+Offsets 7–8 compared with the level shown in the Home Connect app, probe out
+of the charger at room temperature. The reading is noisy (±4).
+
+| App | Reading |
+| --- | --- |
+| 100 % | ~1544 |
+| 80 % | ~1527 |
+| 70 % | 1514 |
+| 60 % | 1496 |
+| 55 % | 1486 |
+| 50 % | 1468 |
+| 30 % | 1449 |
+
+Below 30 % the curve is extrapolated (0 % ≈ 1420). A drained probe stops
+sending, so "empty" cannot be observed directly. The integration averages ten
+readings, shows the level in 5 % steps and only lets it fall while the probe
+keeps sending (heat would otherwise raise it). After five minutes of silence,
+e.g. in the charger, it starts over.
 
 ## Test data
 

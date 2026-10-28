@@ -26,6 +26,7 @@ MEAN = "sensor.neff_meat_probe_average"
 CHANNEL_1 = "sensor.neff_meat_probe_channel_1"
 LAST = "sensor.neff_meat_probe_last_valid_packet"
 AMBIENT = "sensor.neff_meat_probe_ambient_temperature"
+BATTERY = "sensor.neff_meat_probe_battery"
 
 
 @pytest.fixture
@@ -78,6 +79,10 @@ async def test_values(hass: HomeAssistant, setup_entry: MockConfigEntry) -> None
     ambient = hass.states.get(AMBIENT)
     assert ambient.state == "27"
     assert ambient.attributes["unit_of_measurement"] == "°C"
+    battery = hass.states.get(BATTERY)
+    assert battery.state == "100"
+    assert battery.attributes["unit_of_measurement"] == "%"
+    assert mean.attributes["battery_reading"] == 1547
 
 
 async def test_ambient_in_oven(
@@ -110,6 +115,7 @@ async def test_expires_when_probe_goes_silent(
 
     assert hass.states.get(MEAN).state == STATE_UNAVAILABLE
     assert hass.states.get(CHANNEL_1).state == STATE_UNAVAILABLE
+    assert hass.states.get(BATTERY).state == STATE_UNAVAILABLE
     assert hass.states.get(LAST).state == last
 
     # The next packet revives the sensors.
@@ -172,6 +178,8 @@ async def test_diagnostics_redact_address(
     await hass.async_block_till_done()
     diag = await async_get_config_entry_diagnostics(hass, setup_entry)
     assert diag["channels"] == [24, 23, 23, 23]
+    assert diag["battery_reading"] == 1537
+    assert diag["battery_level"] == 90
     assert diag["available"] is True
     assert diag["payload_head_hex"] == "181717171700180106"
     assert ADDRESS not in str(diag)

@@ -21,6 +21,7 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.event import async_call_later
 from homeassistant.util import dt as dt_util
 
+from .battery import BatteryEstimator
 from .const import STALE_SECONDS
 from .decoder import (
     NoManufacturerData,
@@ -55,6 +56,7 @@ class NeffProbeCoordinator(PassiveBluetoothDataUpdateCoordinator):
         self.source: str | None = None
         self.last_error: str | None = None
         self.last_rejected: bytes | None = None
+        self.battery = BatteryEstimator()
         self._cancel_expiry: Callable[[], None] | None = None
 
     @property
@@ -112,6 +114,7 @@ class NeffProbeCoordinator(PassiveBluetoothDataUpdateCoordinator):
         self.rssi = service_info.rssi
         self.source = service_info.source
         self.last_error = None
+        self.battery.update(sample.battery_reading)
         self.async_cancel_expiry()
         self._cancel_expiry = async_call_later(
             self.hass, STALE_SECONDS - max(0, now - packet_time), self._async_expire
@@ -137,6 +140,8 @@ class NeffProbeCoordinator(PassiveBluetoothDataUpdateCoordinator):
         """Mark measurements unavailable when no packet arrived in time."""
         self._cancel_expiry = None
         self._available = False
+        # The probe was probably docked and charging: estimate afresh.
+        self.battery.reset()
         self.async_update_listeners()
 
     @callback

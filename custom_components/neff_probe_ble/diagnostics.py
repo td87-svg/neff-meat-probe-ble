@@ -37,6 +37,8 @@ async def async_get_config_entry_diagnostics(
         "rssi": coordinator.rssi,
         "channels": list(sample.channels) if sample else None,
         "mean": sample.mean if sample else None,
+        "battery_reading": sample.battery_reading if sample else None,
+        "battery_level": coordinator.battery.level,
         # Bytes 0-8 change with temperature. The constant tail might identify
         # the individual probe, so it is left out.
         "payload_head_hex": sample.raw[:9].hex() if sample else None,
