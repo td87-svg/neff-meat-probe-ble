@@ -19,10 +19,13 @@ from custom_components.neff_probe_ble.decoder import decode_advertisement
         (1544, 100),
         (1514, 70),
         (1468, 50),
+        (1534, 85),
         (1449, 30),
-        (1434.5, 15),  # extrapolated below the lowest calibration point
-        (1420, 0),
-        (1300, 0),
+        (1398.5, 20),
+        (1348, 10),
+        (1300, 5),
+        (1240, 0),
+        (1200, 0),
     ],
 )
 def test_reading_to_percent(reading: float, percent: int) -> None:
@@ -61,7 +64,7 @@ def test_discharge_in_steps() -> None:
     """A falling reading lowers the level in 5 % steps."""
     estimator = BatteryEstimator()
     seen = []
-    for reading in range(1544, 1440, -1):
+    for reading in range(1544, 1230, -1):
         for _ in range(WINDOW):
             level = estimator.update(reading)
             if not seen or seen[-1] != level:
@@ -69,7 +72,7 @@ def test_discharge_in_steps() -> None:
     assert seen == sorted(seen, reverse=True)
     assert all(level % 5 == 0 for level in seen)
     assert seen[0] == 100
-    assert seen[-1] in (20, 25)
+    assert seen[-1] == 0
 
 
 def test_reset_after_charging() -> None:

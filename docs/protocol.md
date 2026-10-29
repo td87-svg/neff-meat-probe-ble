@@ -53,20 +53,27 @@ temperature.
 ## Battery
 
 Offsets 7–8 compared with the level shown in the Home Connect app, probe out
-of the charger at room temperature. The reading is noisy (±4).
+of the charger at room temperature, over one full discharge. The reading is
+noisy (about ±7).
 
 | App | Reading |
 | --- | --- |
-| 100 % | ~1544 |
+| (nothing shown) | ~1544, fresh from the charger |
+| 85 % | ~1534 (highest level the app shows) |
 | 80 % | ~1527 |
 | 70 % | 1514 |
 | 60 % | 1496 |
 | 55 % | 1486 |
 | 50 % | 1468 |
 | 30 % | 1449 |
+| 10 % | ~1348 |
+| 5 %, blinking | ~1300 |
+| "--%", no temperature | ~1240 |
 
-Below 30 % the curve is extrapolated (0 % ≈ 1420). A drained probe stops
-sending, so "empty" cannot be observed directly. The integration averages ten
+The integration maps ~1544 to 100 % and ~1240, where the app gives up, to
+0 %. The probe kept advertising below that, so Home Assistant still shows
+temperatures at 0 %. The drop speeds up towards the end: from 10 % to "--%"
+took about an hour. The integration averages ten
 readings, shows the level in 5 % steps and only lets it fall while the probe
 keeps sending (heat would otherwise raise it). After five minutes of silence,
 e.g. in the charger, it starts over.

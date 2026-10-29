@@ -2,9 +2,9 @@
 
 Offsets 7-8 (uint16 little endian) fall steadily while the probe discharges,
 most likely the battery voltage. The table below was calibrated against the
-Home Connect app at room temperature from 100 % down to 30 %. Lower levels are
-extrapolated: a drained probe simply stops sending, so there is no packet that
-marks "empty". This module has no Home Assistant dependency.
+Home Connect app at room temperature over a full discharge. 0 % is where the
+app gives up ("--%"); the probe keeps sending a little longer and then shows
+0 %. This module has no Home Assistant dependency.
 """
 
 from __future__ import annotations
@@ -15,17 +15,20 @@ import math
 
 # (reading, percent), ascending.
 CALIBRATION: tuple[tuple[int, int], ...] = (
-    (1420, 0),  # extrapolated
+    (1240, 0),  # app shows "--%"
+    (1300, 5),  # app blinks
+    (1348, 10),
     (1449, 30),
     (1468, 50),
     (1486, 55),
     (1496, 60),
     (1514, 70),
     (1527, 80),
+    (1534, 85),  # highest level the app shows
     (1544, 100),
 )
 STEP = 5
-# Readings averaged against noise (about ±4, i.e. ±3 %).
+# Readings averaged against noise (about ±7).
 WINDOW = 10
 # Extra margin below a step boundary before the level drops.
 HYSTERESIS = 1.5
